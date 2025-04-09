@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+    .container{
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 95%;
+        font-size: 18px;
+        padding: 15px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="checkbox"]{
+        transform: scale(2);
+        margin-right: 10px;
+        margin-bottom: 30px;
+    }
+
+    button{
+        border: none;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 20px;
+        text-transform: uppercase;
+        width: 100%;
+        cursor: pointer;
+        background-color: #150f70;
+        color: white;
+    }
+
+    hr {
+        width: 100%;
+        color: #ccc;
+    }
+    form{
+
+    }
+    p {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+</style>
+<body>
+<div class="container">
+    <img src="https://james.codegym.vn/pluginfile.php/1/theme_remui/logo/1737014283/Codegym%20X.png" alt="Image"><hr>
+        <p>Sign In</p><br>
+    <form>
+        <label for="Username"></label><input type="text" id="Username" name="username" placeholder="Username / email" required>
+        <label for="Password"></label><input type="password" id="Password" name="password" placeholder="Password" required>
+        <div>
+            <label for="checkBox"></label><input type="checkbox" id="checkBox" name="checkBox">
+            <label type="checkBox">Remember username</label>
+        </div>
+        <button type="submit">Log in</button>
+    </form>
+</div>
+</body>
+</html>
