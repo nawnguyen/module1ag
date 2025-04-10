@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Toán: <input type="number" id="math">
+Lý: <input type="number" id="phys">
+Hóa: <input type="number" id="chem">
+<button id="calculate">Tính</button>
+<p id="result"></p>
+
+<script>
+    document.getElementById("calculate").addEventListener("click", function () {
+        let math = document.getElementById("math").value;
+        let phys = document.getElementById("phys").value;
+        let chem = document.getElementById("chem").value;
+
+        if (math === "" || phys === "" || chem === "" || isNaN(math) || isNaN(phys) || isNaN(chem)) {
+            document.getElementById("result").innerText = "Nhập lại thông tin đầy đủ và hợp lệ!";
+            return;
+        }
+
+        math = +math;
+        phys = +phys;
+        chem = +chem;
+
+        let avg = (math + phys + chem) / 3;
+
+        let resultStudent;
+        if (avg >= 9) {
+            resultStudent = "Điểm trung bình: " + avg + "\nHọc sinh giỏi";
+        } else if (avg >= 7 && avg < 9) {
+            resultStudent = "Điểm trung bình: " + avg + "\nHọc sinh khá";
+        } else if (avg >= 5 && avg < 7) {
+            resultStudent = "Điểm trung bình: " + avg + "\nHọc sinh trung bình";
+        } else {
+            resultStudent = "Điểm trung bình: " + avg + "\nHọc sinh yếu";
+        }
+        document.getElementById("result").innerText = resultStudent;
+    });
+</script>
+</body>
+</html>
