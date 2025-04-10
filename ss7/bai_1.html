@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            padding: 50px;
+        }
+
+        table {
+            background-color: whitesmoke;
+            margin: auto;
+            padding: 20px;
+
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        p {
+            background-color: darkgoldenrod;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td colspan="2"><p>TIP CALCULATOR</p></td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <label>How much was your bill? (USD)</label><br>
+            $ <input type="number" id="money">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <a>How war your service?</a>
+            <br>
+            <select id="rate">
+                <option value="1">30% - Outstanding</option>
+                <option value="2">20% - Good</option>
+                <option value="3">15% - It was OK</option>
+                <option value="4">5% BAD</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <label>How many people share the bill?</label><br>
+            <input type="number" id="people"> people
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <button onclick="chiaDeu()">CALCULATE!</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <p id="result"></p>
+        </td>
+    </tr>
+</table>
+
+<script>
+    function chiaDeu() {
+        const money = +document.getElementById('money').value;
+        const people = +document.getElementById('people').value;
+        const result = document.getElementById('result');
+
+        if (isNaN(money) || isNaN(people) || people === 0) {
+            result.textContent = "Please fill in valid information!";
+        } else {
+            const calculation = money / people;
+
+            result.innerHTML =
+        `TIP AMOUNT: <strong>$${calculation.toFixed(2)}</strong>`;
+        }
+    }
+</script>
+
+</body>
+</html>
