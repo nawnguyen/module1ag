@@ -107,13 +107,13 @@
         const people = +document.getElementById('people').value;
         const result = document.getElementById('result');
 
-        if (isNaN(money) || isNaN(people) || people === 0) {
+        if (isNaN(money) || isNaN(people) || people < 1 || money < 1 ) {
             result.textContent = "Please fill in valid information!";
         } else {
             const calculation = money / people;
 
             result.innerHTML =
-        `TIP AMOUNT: <strong>$${calculation.toFixed(2)}</strong>`;
+                `TIP AMOUNT: <strong>$${calculation.toFixed(2)}</strong>`;
         }
     }
 </script>
