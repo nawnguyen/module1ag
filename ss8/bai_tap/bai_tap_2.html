@@ -12,8 +12,8 @@
         let year = +prompt("Enter year");
         let day;
 
-        if (month < 1 || month > 12 || year < 0 || isNaN(month) || isNaN(year)) {
-            alert("Please enter again input!");
+        if (month < 1 || month > 12 || year < 0 || isNaN(month) || isNaN(year) || !Number.isInteger(month) || !Number.isInteger(year)) {
+            alert("Please enter again in the right format!");
             return;
         }
         switch (month) {
