@@ -2,9 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Chuyển đổi tiền tệ</title>
+    <style>
+        table {
+            margin: auto;
+            border-radius: 10px;
+            background-color: white;
+            padding: 20px;
+        }
+
+        body {
+            background-color: lightsteelblue;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-weight: bold;
+            background-color: steelblue;
+            color: white;
+            border-radius: 5px;
+        }
+
+        input, select {
+            padding: 8px;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
+<div><h1 style="text-align: center;">Chuyển đổi tiền tệ</h1></div>
+<div>
+    <table>
+        <tr>
+            <td>Số tiền</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="amount" placeholder="Nhập số tiền">
+            </td>
+            <td>
+                <select id="from">
+                    <option>USD</option>
+                    <option>JPY</option>
+                    <option>VND</option>
+                    <option>RMB</option>
+                    <option>GBP</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Chuyển đổi thành</td>
+        </tr>
+        <tr>
+            <td><input id="result" placeholder="Kết quả" readonly></td>
+            <td>
+                <select id="to">
+                    <option>USD</option>
+                    <option>JPY</option>
+                    <option>VND</option>
+                    <option>RMB</option>
+                    <option>GBP</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <button onclick="convertCurrency()">Chuyển đổi</button>
+            </td>
+        </tr>
+    </table>
+</div>
 
+<script>
+    function convertCurrency() {
+        let amount = +document.getElementById("amount").value;
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let result = 0;
+
+        if (amount < 1 || isNaN(amount)) {
+            alert("Vui lòng nhập vào số tiền hợp lệ!");
+        }
+
+        let rates = {
+            USD: {VND: 25000, JPY: 110, RMB: 7, GBP: 0.75},
+            VND: {USD: 1 / 25000, JPY: 0.0044, RMB: 0.00028, GBP: 0.00003},
+            JPY: {USD: 1 / 110, VND: 230, RMB: 0.063, GBP: 0.0068},
+            RMB: {USD: 1 / 7, VND: 3600, JPY: 16, GBP: 0.11},
+            GBP: {USD: 1 / 0.75, VND: 33000, JPY: 160, RMB: 9}
+        };
+
+        if (from === to) {
+            result = amount;
+        } else if (rates[from] && rates[from][to]) {
+            result = amount * rates[from][to];
+        } else {
+            alert("Không có tỷ giá phù hợp để chuyển đổi.");
+            return;
+        }
+
+        document.getElementById("result").value = result;
+    }
+</script>
 </body>
 </html>

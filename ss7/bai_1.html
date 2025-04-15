@@ -103,8 +103,8 @@
 
 <script>
     function chiaDeu() {
-        const money = +document.getElementById('money').value;
-        const people = +document.getElementById('people').value;
+        let money = +document.getElementById('money').value;
+        let people = +document.getElementById('people').value;
         const result = document.getElementById('result');
 
         if (isNaN(money) || isNaN(people) || people < 1 || money < 1 ) {
