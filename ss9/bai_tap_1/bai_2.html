@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+    do {
+        number = +prompt("Enter number from 1 to 100");
+        if (number <= 0 || number >= 100 || isNaN(number)) {
+            alert("Enter again in form 1 to 100");
+
+        }
+    } while (number <= 0 || number >= 100 || isNaN(number))
+    alert(number + " is a valid number");
+</script>
+</body>
+</html>

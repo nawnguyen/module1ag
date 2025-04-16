@@ -10,11 +10,16 @@
         let a = +prompt("Nhap canh a");
         let b = +prompt("Nhap canh b");
         let c = +prompt("Nhap canh c");
-        if (a < 1 || b < 1 || c < 1 || isNaN(a) || isNaN(b) || isNaN(c)|| Number.isInteger(a)||Number.isInteger(b)) {
+        if (a < 1 || b < 1 || c < 1 || isNaN(a) || isNaN(b) || isNaN(c) || !Number.isInteger(a) || !Number.isInteger(b)|| !Number.isInteger(c)) {
             alert("Vui long nhap vao lai mot so nguyen duong!");
             return;
         }
-        if (a === b && Math.sqrt(a * a + b * b)) {
+        if (c <= a || c <= b) {
+            alert("Canh huyen (c) phải la canh lon nhat");
+            return;
+        }
+
+        if (a === b && a * a + b * b === c * c) {
             alert("La 3 canh cua mot tam giac vuong can");
         } else {
             alert("Khong du dieu kien la mot tam giac vuong can");
