@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let prime = +prompt("Nhập một số:");
+    let isPrime = true;
+
+    if (prime < 2) {
+        isPrime = false;
+    } else {
+        for (let i = 2; i * i <= prime; i++) {
+            if (prime % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+
+    if (isPrime) {
+        alert(prime + " là số nguyên tố");
+    } else {
+        alert(prime + " không phải là số nguyên tố");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let fatherAge;
+    let childAge;
+    let age = 1;
+    do {
+        fatherAge = +prompt("Nhap vao tuoi cha");
+        childAge = +prompt("Nhap vao tuoi con");
+        if (fatherAge - childAge < 25) {
+            alert("Nhap lai tuoi bo phai lon hon tuoi con it nhat 25 tuoi");
+        }
+    } while (fatherAge - childAge < 25)
+    while (fatherAge!==2*childAge){
+        fatherAge++;
+        childAge++;
+        age++;
+    }
+    alert("sau "+age +" nam");
+</script>
+</body>
+</html>
