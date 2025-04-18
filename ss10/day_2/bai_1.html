@@ -5,6 +5,29 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    let lengthArr = +prompt("Nhap do dai cua mang");
+    let array = [];
+    let sum1 = 0;
+    let sum2 = 0;
+    if (lengthArr <= 0 || isNaN(lengthArr) || !Number.isInteger(lengthArr)) {
+        alert("Vui long nhap dau vao hop le");
+    } else {
+        for (let i = 0; i < lengthArr; i++) {
+            array.push(+prompt(`Nhap vao gia tri ${i + 1}`));
+        }
+    }
+    alert("Mang vua nhap: " + array);
 
+    for (let i = 0; i < lengthArr; i++) {
+        if (i % 2 === 0) {
+            sum1++;
+        } else {
+            sum2++;
+        }
+    }
+    alert("Tong vi tri le: "+ sum1);
+    alert("Tong vi tri chan: " + sum2);
+</script>
 </body>
 </html>

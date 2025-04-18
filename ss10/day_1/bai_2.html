@@ -7,11 +7,11 @@
 <body>
 <script>
     let lengthArr = +prompt("Nhập độ dài mảng:");
+    let array = [];
 
     if (isNaN(lengthArr) || !Number.isInteger(lengthArr) || lengthArr <= 0) {
         alert("Vui lòng nhập một số nguyên dương hợp lệ!");
     } else {
-        let array = [];
 
         for (let i = 0; i < lengthArr; i++) {
             array.push(+prompt(`Nhập số thứ ${i + 1}:`));

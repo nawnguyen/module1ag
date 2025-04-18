@@ -6,14 +6,30 @@
 </head>
 <body>
 <script>
-    let array = [9, 8, 7, 10, 6, 5, 12, 3, 2];
-    let largerNumber = array[0];
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > largerNumber) {
-            largerNumber = array[i];
-        }
-    }
-    document.write(largerNumber);
+     let array = [9, 8, 7, 10, 6, 5, 12, 3, 2];
+     let largerNumber = array[0];
+     let indexLager;
+     for (let i = 0; i < array.length; i++) {
+         if (array[i] > largerNumber) {
+             largerNumber = array[i];
+             indexLager = i;
+         }
+     }
+
+     array.splice(indexLager, 1);
+
+     let secondLargest = array[0];
+     for (let i = 1; i < array.length; i++) {
+         if (array[i] > secondLargest) {
+             secondLargest = array[i];
+         }
+     }
+     alert("So lon thu hai: "+ secondLargest);
+
+    /*let array = [9, 8, 7, 10, 6, 5, 12, 3, 2];
+    let decrease = array.sort((a, b) => (b - a));
+    alert("So lon thu nhat: "+ decrease[0]);
+    alert("So lon thu hai: " + decrease[1]);*/
 </script>
 </body>
 </html>
