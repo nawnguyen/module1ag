@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let lengthArr = +prompt("Nhap do dai mang");
+    let array = [];
+    let sum1 = 0;
+    let sum2 = 0;
+    for (let i = 0; i < lengthArr; i++) {
+        array.push(+prompt("Nhap so vao mang"));
+    }
+    alert("Cac so vua nhap: " + array);
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            sum1++;
+        } else {
+            sum2++;
+        }
+    }
+    if (sum1 === sum2) {
+        alert("Oke");
+    } else {
+        alert("No");
+    }
+</script>
+</body>
+</html>

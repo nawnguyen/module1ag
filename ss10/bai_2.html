@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let lengthArr = +prompt("Nhập độ dài mảng:");
+
+    if (isNaN(lengthArr) || !Number.isInteger(lengthArr) || lengthArr <= 0) {
+        alert("Vui lòng nhập một số nguyên dương hợp lệ!");
+    } else {
+        let array = [];
+
+        for (let i = 0; i < lengthArr; i++) {
+            array.push(+prompt(`Nhập số thứ ${i + 1}:`));
+        }
+
+        alert("Mảng vừa nhập: " + array);
+
+        for (let i = 0; i < array.length; i++) {
+            let number = array[i];
+            let sqrt = Math.sqrt(number);
+
+            if (number >= 0 && sqrt === Math.floor(sqrt)) {
+                alert(number + " là số chính phương");
+            } else {
+                alert(number + " không phải là số chính phương");
+            }
+        }
+    }
+</script>
+</body>
+</html>
