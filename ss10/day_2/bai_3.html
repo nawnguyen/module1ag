@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập số lượng phần tử:");
+    let arr = [];
+
+    for (let i = 0; i < n; i++) {
+        let value;
+        do {
+            value = prompt(`Nhập phần tử thứ ${i + 1}:`);
+            if (arr.includes(value)) {
+                alert("Phần tử đã tồn tại, hãy nhập lại!");
+            }
+        } while (arr.includes(value));
+
+        arr.push(value);
+    }
+
+    alert("Mảng sau khi nhập:\n" + arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="output"></div>
+
+<script>
+    let m = +prompt("Nhập số hàng (m):");
+    let n = +prompt("Nhập số cột (n):");
+    let arr = [];
+
+    for (let i = 0; i < m; i++) {
+        arr[i] = [];
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = +prompt(`Nhập phần tử tại hàng ${i + 1}, cột ${j + 1}:`);
+        }
+    }
+
+    let output = "<h3>Mảng vừa nhập:</h3>";
+    for (let i = 0; i < m; i++) {
+        output += arr[i].join(" ") + "<br>";
+    }
+
+    if (m === n) {
+        let sum = 0;
+        for (let i = 0; i < n; i++) {
+            sum += arr[i][i];
+            sum += arr[i][n - 1 - i];
+        }
+
+        if (n % 2 === 1) {
+            let mid = Math.floor(n / 2);
+            sum -= arr[mid][mid];
+        }
+
+        output += `<h3>Tổng 2 đường chéo là: ${sum}</h3>`;
+    } else {
+        output += "<p>Không thể tính tổng vì mảng không phải ma trận vuông.</p>";
+    }
+
+    document.getElementById("output").innerHTML = output;
+</script>
+</body>
+</html>
