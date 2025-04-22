@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkArray() {
+        let lengthArr;
+        let input;
+        do {
+            lengthArr = +prompt('Nhap vao do dai mang');
+        } while (isNaN(lengthArr) || !Number.isInteger(lengthArr))
+        let arrayNumber = [];
+        for (let i = 0; i < lengthArr; i++) {
+            do {
+                input = +prompt(`Nhap gia tri ${i + 1} vao mang`);
+            } while (isNaN(input) || !Number.isInteger(input));
+            arrayNumber.push(input);
+        }
+        let isEven = true;
+        let isOdd = true;
+        for (let i = 0; i < arrayNumber.length; i++) {
+            if (arrayNumber[i] % 2 !== 0) {
+                isEven = false;
+            }
+            if (arrayNumber[i] % 2 === 0) {
+                isOdd = false;
+            }
+        }
+        if (isEven) {
+            alert('1');
+        }else if (isOdd) {
+            alert('0');
+        }else {
+            alert('-1');
+        }
+        return arrayNumber;
+    }
+
+    alert(checkArray());
+</script>
+</body>
+</html>

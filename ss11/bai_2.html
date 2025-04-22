@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkCharacter() {
+        let arrayCharacter = [];
+        let countSo = 0;
+        let countChu = 0;
+        let length;
+
+        do {
+            length = +prompt("Nhập độ dài mảng:");
+        } while (length === "" || isNaN(length) || parseInt(length) <= 0);
+
+
+        for (let i = 0; i < length; i++) {
+            let input = prompt("Nhập phần tử thứ " + (i + 1) + ":");
+            arrayCharacter.push(input);
+        }
+
+        for (let i = 0; i < arrayCharacter.length; i++) {
+            let value = arrayCharacter[i];
+
+            if (value.length !== 1) {
+                return -1;
+            }
+
+            let character = value;
+
+            if (character >= '0' && character <= '9') {
+                countSo++;
+            }
+            else if ((character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z')) {
+                countChu++;
+            }
+            else {
+                return -1;
+            }
+        }
+
+        if (countSo === arrayCharacter.length) {
+            return 1;
+        } else if (countChu === arrayCharacter.length) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+    alert(checkCharacter());
+</script>
+</body>
+</html>
