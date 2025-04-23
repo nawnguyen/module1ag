@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function increaseArr() {
+        let lengthArr;
+        let array = [];
+        do {
+            lengthArr = +prompt('Nhap do dai mang');
+        } while (isNaN(lengthArr) || !Number.isInteger(lengthArr) || lengthArr < 2)
+        for (let i = 0; i < lengthArr; i++) {
+            array.push(+prompt(`Nhap phan tu thu ${i + 1}`));
+        }
+        alert(array);
+
+        let lengthNumb = array[1] - array[0];
+
+        if (lengthNumb < 2) {
+            return 'NO';
+        }
+        for (let i = 2; i < array.length; i++) {
+            if (array[i] - array[i - 1] !== lengthNumb) {
+                return 'NO';
+            }
+        }
+        return 'OK';
+    }
+
+    alert(increaseArr());
+</script>
+</body>
+</html>
