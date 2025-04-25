@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Thông tin tài khoản</h2>
+<div id="accountInfo"></div>
+
+<h3>Giao dịch</h3>
+<label for="amountInput"></label><input type="number" id="amountInput" placeholder="Nhập số tiền">
+<button onclick="depositMoney()">Nạp tiền</button>
+<button onclick="withdrawMoney()">Rút tiền</button>
+
+<p id="message"></p>
+
+<script>
+    class Account {
+        constructor(number, name, balance) {
+            this._number = number;
+            this._name = name;
+            this._balance = balance;
+        }
+
+        getInfo() {
+            return `Số tài khoản: ${this._number}<br>Tên tài khoản: ${this._name}<br>Số dư: ${this._balance.toLocaleString()} VND`;
+        }
+
+        deposit(amount) {
+            if (amount > 0) {
+                this._balance += amount;
+                return `Đã nạp ${amount.toLocaleString()} VND`;
+            } else {
+                return "Số tiền nạp phải lớn hơn 0";
+            }
+        }
+
+        withdraw(amount) {
+            if (amount <= 0) {
+                return "Số tiền rút phải lớn hơn 0";
+            } else if (amount > this._balance) {
+                return "Số dư không đủ để rút";
+            } else {
+                this._balance -= amount;
+                return `Đã rút ${amount.toLocaleString()} VND`;
+            }
+        }
+    }
+
+    let myAccount = new Account("123456", "Nguyễn Văn A", 1000000);
+
+    function showInfo() {
+        document.getElementById("accountInfo").innerHTML = myAccount.getInfo();
+    }
+
+    function depositMoney() {
+        let amount = +document.getElementById("amountInput").value;
+        document.getElementById("message").innerText = myAccount.deposit(amount);
+        showInfo();
+    }
+
+    function withdrawMoney() {
+        let amount = +document.getElementById("amountInput").value;
+        document.getElementById("message").innerText = myAccount.withdraw(amount);
+        showInfo();
+    }
+
+    showInfo();
+</script>
+</body>
+</html>
